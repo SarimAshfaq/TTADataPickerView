@@ -220,11 +220,11 @@ extension TTADataPickerView {
     
     // MARK: - Public ReadOnly properties, Global apperance properties
     
-    public var cancelButtonAttributes: [String: Any]? {
+    public var cancelButtonAttributes: [NSAttributedString.Key: Any]? {
         return toolBar.cancelButton.titleTextAttributes(for: .normal)
     }
     
-    public var confirmButtonAttributes: [String: Any]? {
+    public var confirmButtonAttributes: [NSAttributedString.Key: Any]? {
         return toolBar.confirmButton.titleTextAttributes(for: .normal)
     }
     
@@ -246,31 +246,31 @@ extension TTADataPickerView {
     
     // MARK: - Public Functions
     // MARK: - Global apperance properties functions
-    public dynamic func setConfirmButtonAttributes(att: [String: Any]?) {
+    @objc public dynamic func setConfirmButtonAttributes(att: [NSAttributedString.Key: Any]?) {
         toolBar.confirmButton.setTitleTextAttributes(att, for: .normal)
     }
     
-    public dynamic func setCancelButtonAttributes(att: [String: Any]?) {
+    @objc public dynamic func setCancelButtonAttributes(att: [NSAttributedString.Key: Any]?) {
         toolBar.cancelButton.setTitleTextAttributes(att, for: .normal)
     }
     
-    public dynamic func setToolBarBarTintColor(color: UIColor?) {
+    @objc public dynamic func setToolBarBarTintColor(color: UIColor?) {
         toolBar.barTintColor = color
     }
     
-    public dynamic func setToolBarTintColor(color: UIColor?) {
+    @objc public dynamic func setToolBarTintColor(color: UIColor?) {
         toolBar.tintColor = color
     }
     
-    public dynamic func setTitleFont(font: UIFont) {
-//        let apperance = TTADataPickerToolBar.appearance()
-//        apperance.titleButton.font = font
+    @objc public dynamic func setTitleFont(font: UIFont) {
+        //        let apperance = TTADataPickerToolBar.appearance()
+        //        apperance.titleButton.font = font
         toolBar.titleButton.font = font
     }
     
-    public dynamic func setTitleColor(color: UIColor) {
-//        let apperance = TTADataPickerToolBar.appearance()
-//        apperance.titleButton.titleColor = color
+    @objc public dynamic func setTitleColor(color: UIColor) {
+        //        let apperance = TTADataPickerToolBar.appearance()
+        //        apperance.titleButton.titleColor = color
         toolBar.titleButton.titleColor = color
     }
     
@@ -362,7 +362,7 @@ extension TTADataPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return textItemsForComponent?.count ?? 0
     }
-
+    
     @available(iOS 2.0, *)
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let items = textItemsForComponent?[component] else { return 0 }
