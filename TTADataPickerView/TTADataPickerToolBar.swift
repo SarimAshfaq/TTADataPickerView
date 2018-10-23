@@ -9,10 +9,10 @@
 import UIKit
 
 class TTADataPickerToolBar: UIToolbar {
-    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: nil
+    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: nil
         , action: nil)
-    let confirmButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil, action: nil)
-    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil
+    let confirmButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: nil)
+    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil
         , action: nil)
     let titleButton = TTADataPickerTitleBarButtonItem(title: nil)
     
@@ -70,7 +70,7 @@ class TTADataPickerToolBar: UIToolbar {
         
         titleButton.customView?.frame = CGRect(x: x, y: 0, width: width, height: self.frame.size.height)
     }
-
+    
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         var size = super.sizeThatFits(size)
         size.height = 44
@@ -86,6 +86,7 @@ fileprivate extension TTADataPickerToolBar {
         isTranslucent = true
         tintColor = UIColor.black // default tint color is black
         barTintColor = nil
-        items = [cancelButton, flexibleSpace, titleButton, flexibleSpace, confirmButton]
+        confirmButton.width = 100
+        items = [cancelButton, flexibleSpace, flexibleSpace, confirmButton]
     }
 }
